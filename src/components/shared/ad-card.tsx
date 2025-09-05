@@ -71,7 +71,7 @@ export default function AdCard({ ad }: AdCardProps) {
            <div className="flex items-center font-bold text-primary">
             <Tag className="mr-2 h-5 w-5" />
             <span className="text-xl">
-              ${ad.price.toLocaleString('en-US')}
+              ৳{ad.price.toLocaleString('en-US')}
             </span>
           </div>
           <Badge variant="secondary">{ad.category}</Badge>

@@ -67,8 +67,11 @@ export default function PostAdPage() {
   const form = useForm<AdFormValues>({
     resolver: zodResolver(adSchema),
     defaultValues: {
+      category: '',
+      subcategory: '',
       title: '',
       description: '',
+      price: 0,
       location: '',
     },
   });
@@ -205,7 +208,7 @@ export default function PostAdPage() {
                         name="price"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Price ($)</FormLabel>
+                            <FormLabel>Price (৳)</FormLabel>
                             <FormControl>
                               <Input type="number" placeholder="Enter price" {...field} />
                             </FormControl>
@@ -268,7 +271,7 @@ export default function PostAdPage() {
                         <div className="rounded-md border p-4">
                             <h4 className="font-semibold">{form.getValues('title')}</h4>
                             <p className="text-sm text-muted-foreground">{form.getValues('location')}</p>
-                            <p className="mt-2 text-lg font-bold text-primary">${form.getValues('price')}</p>
+                            <p className="mt-2 text-lg font-bold text-primary">৳{form.getValues('price')}</p>
                             <p className="mt-2 text-sm">{form.getValues('description')}</p>
                              {images.length > 0 && <p className="mt-2 text-sm font-medium">{images.length} images selected</p>}
                         </div>

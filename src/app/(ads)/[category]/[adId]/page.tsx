@@ -126,7 +126,7 @@ export default function AdDetailPage({
                         Price
                       </h3>
                       <p className="mt-1 text-3xl font-bold text-primary">
-                        ${ad.price.toLocaleString()}
+                        ৳{ad.price.toLocaleString()}
                       </p>
                     </div>
                     <div>

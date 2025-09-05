@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, ChevronDown, PlusCircle } from 'lucide-react';
+import { Menu, Search, ChevronDown, PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -18,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { categories } from '@/lib/mock-data';
+import { Separator } from '../ui/separator';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,10 +58,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex" asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden md:inline-flex"
+            asChild
+          >
             <Link href="/search">
-                <Search className="h-5 w-5" />
-                <span className="sr-only">Search</span>
+              <Search className="h-5 w-5" />
+              <span className="sr-only">Search</span>
             </Link>
           </Button>
           <Button
@@ -84,44 +90,59 @@ export default function Navbar() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left">
+              <SheetContent side="left" className="pr-0">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <Link href="/" className="mb-8 flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                     <PlusCircle className="h-8 w-8 text-primary" />
+                  <Link
+                    href="/"
+                    className="mb-4 flex items-center gap-2 pr-6"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <PlusCircle className="h-8 w-8 text-primary" />
                     <span className="font-headline text-2xl font-bold">
                       AdSpot
                     </span>
                   </Link>
                 </SheetHeader>
-                <nav className="flex flex-col gap-4">
-                  <Link
-                    href="/search"
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Search
-                  </Link>
-                  <p className="text-lg font-medium text-muted-foreground">Categories</p>
-                  {categories.map(cat => (
-                     <Link
-                        key={cat.name}
-                        href={`/${cat.name.toLowerCase()}`}
-                        className="ml-4 text-lg font-medium text-muted-foreground hover:text-foreground"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                <Separator />
+                <div className="mt-4 flex h-full flex-col">
+                  <nav className="flex flex-1 flex-col gap-2 pr-6">
+                    <Link
+                      href="/search"
+                      className="rounded-lg px-3 py-2 text-lg font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
-                        {cat.name}
+                      Search
                     </Link>
-                  ))}
-                  
-                  <Link
-                    href="/login"
-                    className="mt-4 text-lg font-medium text-muted-foreground hover:text-foreground"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Login / Sign Up
-                  </Link>
-                </nav>
+                    <div>
+                      <h3 className="px-3 py-2 text-lg font-medium text-muted-foreground">
+                        Categories
+                      </h3>
+                      <div className="flex flex-col gap-1">
+                        {categories.map((cat) => (
+                          <Link
+                            key={cat.name}
+                            href={`/${cat.name.toLowerCase()}`}
+                            className="rounded-lg px-3 py-2 font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {cat.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </nav>
+                  <Separator />
+                  <div className="mt-4 flex flex-col gap-2 pr-6">
+                    <Link
+                      href="/login"
+                      className="rounded-lg px-3 py-2 text-lg font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Login / Sign Up
+                    </Link>
+                  </div>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

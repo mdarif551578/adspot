@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
         <CardFooter className="justify-center">
           <p className="text-sm text-muted-foreground">
             Remember your password?{' '}
-            <Link href="/auth/login" className="text-primary hover:underline">
+            <Link href="/login" className="text-primary hover:underline">
               Log in
             </Link>
           </p>

@@ -56,7 +56,7 @@ export default function LoginPage() {
               <Label htmlFor="remember">Remember me</Label>
             </div>
             <Link
-              href="/auth/forgot-password"
+              href="/forgot-password"
               className="text-sm text-primary hover:underline"
             >
               Forgot password?
@@ -84,7 +84,7 @@ export default function LoginPage() {
         <CardFooter className="justify-center">
           <p className="text-sm text-muted-foreground">
             Don't have an account?{' '}
-            <Link href="/auth/register" className="text-primary hover:underline">
+            <Link href="/register" className="text-primary hover:underline">
               Sign up
             </Link>
           </p>

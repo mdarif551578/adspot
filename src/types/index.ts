@@ -34,6 +34,7 @@ export interface Ad {
   location: string;
   images: string[]; // Array of URLs
   status: AdStatus;
+  isFeatured?: boolean;
   views: number;
   userId: string;
   user: User;

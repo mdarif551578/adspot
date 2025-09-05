@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -40,24 +41,24 @@ export default function Footer() {
             <h4 className="font-headline font-semibold">Quick Links</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/" className="text-muted-foreground hover:text-primary">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/search" className="text-muted-foreground hover:text-primary">
                   All Ads
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/post" className="text-muted-foreground hover:text-primary">
                   Post an Ad
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/login" className="text-muted-foreground hover:text-primary">
                   My Account
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

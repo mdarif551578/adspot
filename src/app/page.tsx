@@ -204,8 +204,10 @@ function CTABanner() {
               Post your ad on AdSpot and reach thousands of potential buyers.
             </p>
           </div>
-          <Button size="lg" className="shrink-0">
-            Post Your Ad for Free
+          <Button size="lg" className="shrink-0" asChild>
+            <a href="/post">
+              Post Your Ad for Free
+            </a>
           </Button>
         </div>
       </div>

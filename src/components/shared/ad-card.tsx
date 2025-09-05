@@ -33,6 +33,11 @@ export default function AdCard({ ad }: AdCardProps) {
             data-ai-hint="product photo"
           />
         </Link>
+        {ad.isFeatured && (
+           <Badge className="absolute left-2 top-2 bg-accent text-accent-foreground">
+             Featured
+           </Badge>
+        )}
         {ad.status === 'SOLD' && (
           <Badge
             variant="destructive"

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Search, ChevronDown, PlusCircle } from 'lucide-react';
+import { Menu, Search, ChevronDown, PlusCircle, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -16,12 +16,17 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 import { categories } from '@/lib/mock-data';
 import { Separator } from '../ui/separator';
 
+// This is a placeholder for session logic
+const useSession = () => ({ data: null }); // or { data: { user: { name: 'John' } } }
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,13 +52,6 @@ export default function Navbar() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Link
-              href="/search"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              Locations
-            </Link>
           </nav>
         </div>
 
@@ -69,13 +67,31 @@ export default function Navbar() {
               <span className="sr-only">Search</span>
             </Link>
           </Button>
-          <Button
-            variant="outline"
-            className="hidden hover:bg-accent hover:text-accent-foreground md:inline-flex"
-            asChild
-          >
-            <Link href="/login">Login / Sign Up</Link>
-          </Button>
+          {session ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="secondary" className="hidden md:inline-flex">
+                    <User className="mr-2" />
+                    My Account
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                    <DropdownMenuItem asChild><Link href="/profile">Profile</Link></DropdownMenuItem>
+                    <DropdownMenuItem asChild><Link href="/my-ads">My Ads</Link></DropdownMenuItem>
+                    <DropdownMenuItem asChild><Link href="/messages">Messages</Link></DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+          ) : (
+             <Button
+                variant="outline"
+                className="hidden hover:bg-accent hover:text-accent-foreground md:inline-flex"
+                asChild
+              >
+              <Link href="/login">Login / Sign Up</Link>
+            </Button>
+          )}
           <Button asChild>
             <Link href="/post">
               <PlusCircle className="mr-2 h-5 w-5" />
@@ -91,9 +107,9 @@ export default function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <SheetHeader>
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <Link
+                 <SheetHeader>
+                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                   <Link
                     href="/"
                     className="mb-4 flex items-center gap-2 pr-6"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -115,7 +131,17 @@ export default function Navbar() {
                       Search
                     </Link>
                     <div>
-                      <h3 className="px-3 py-2 text-lg font-medium text-muted-foreground">
+                      <h3 className="px-3 text-lg font-semibold text-foreground">
+                        My Account
+                      </h3>
+                       <div className="flex flex-col gap-1">
+                         <Link href="/profile" className="rounded-lg px-3 py-2 font-medium text-muted-foreground hover:bg-accent hover:text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
+                         <Link href="/my-ads" className="rounded-lg px-3 py-2 font-medium text-muted-foreground hover:bg-accent hover:text-foreground" onClick={() => setIsMobileMenuOpen(false)}>My Ads</Link>
+                         <Link href="/messages" className="rounded-lg px-3 py-2 font-medium text-muted-foreground hover:bg-accent hover:text-foreground" onClick={() => setIsMobileMenuOpen(false)}>Messages</Link>
+                       </div>
+                    </div>
+                     <div>
+                      <h3 className="px-3 text-lg font-semibold text-foreground">
                         Categories
                       </h3>
                       <div className="flex flex-col gap-1">

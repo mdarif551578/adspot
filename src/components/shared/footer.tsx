@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t">
+    <footer className="border-t bg-card">
       <div className="container mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-1">
@@ -56,7 +56,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard/profile" className="text-muted-foreground hover:text-primary">
+                <Link href="/profile" className="text-muted-foreground hover:text-primary">
                   My Account
                 </Link>
               </li>

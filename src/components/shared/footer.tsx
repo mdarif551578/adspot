@@ -66,24 +66,24 @@ export default function Footer() {
             <h4 className="font-headline font-semibold">About</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/about" className="text-muted-foreground hover:text-primary">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/contact" className="text-muted-foreground hover:text-primary">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/terms-of-service" className="text-muted-foreground hover:text-primary">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -91,14 +91,14 @@ export default function Footer() {
             <h4 className="font-headline font-semibold">Support</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="#" className="text-muted-foreground hover:text-primary">
                   Help/FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="#" className="text-muted-foreground hover:text-primary">
                   Safety Tips
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

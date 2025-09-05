@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { AIAdSummary } from '@/components/ai-ad-summary';
 
 interface AdCardProps {
   ad: Ad;
@@ -57,9 +56,10 @@ export default function AdCard({ ad }: AdCardProps) {
           <MapPin className="h-4 w-4" />
           <span>{ad.location}</span>
         </div>
+        <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{ad.description}</p>
       </CardContent>
       <CardFooter className="flex-col items-start p-4 pt-0">
-        <div className="mb-4 flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between">
           <div className="flex items-center font-bold text-primary">
             <Tag className="mr-2 h-5 w-5" />
             <span className="text-xl">
@@ -67,7 +67,6 @@ export default function AdCard({ ad }: AdCardProps) {
             </span>
           </div>
         </div>
-        <AIAdSummary adContent={ad.description} />
       </CardFooter>
     </Card>
   );

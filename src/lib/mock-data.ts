@@ -8,7 +8,7 @@ import {
   HeartHandshake,
   Dog,
 } from 'lucide-react';
-import type { Ad, Category } from '@/types';
+import type { Ad, Category, User } from '@/types';
 
 export const categories: Category[] = [
   { name: 'Electronics', icon: Smartphone },
@@ -21,6 +21,29 @@ export const categories: Category[] = [
   { name: 'Pets', icon: Dog },
 ];
 
+const mockUsers: User[] = [
+    {
+        id: 'user-1',
+        email: 'john.doe@example.com',
+        name: 'John Doe',
+        phone: '123-456-7890',
+        location: 'Dhaka',
+        role: 'USER',
+        avatarUrl: 'https://i.pravatar.cc/150?u=user-1',
+        createdAt: new Date('2023-01-15').toISOString(),
+    },
+    {
+        id: 'user-2',
+        email: 'jane.smith@example.com',
+        name: 'Jane Smith',
+        phone: '098-765-4321',
+        location: 'Chattogram',
+        role: 'USER',
+        avatarUrl: 'https://i.pravatar.cc/150?u=user-2',
+        createdAt: new Date('2022-11-20').toISOString(),
+    }
+];
+
 export const ads: Ad[] = [
   {
     id: '1',
@@ -29,9 +52,15 @@ export const ads: Ad[] = [
       'Selling my iPhone 14 Pro, 256GB in Deep Purple. The phone is in excellent condition with 98% battery health. No scratches or dents. Comes with original box and cable. Only selling because I upgraded to the new model. Serious buyers only.',
     price: 950,
     category: 'Electronics',
+    subcategory: 'Mobile Phones',
     location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=1',
-    isFeatured: true,
+    images: ['https://picsum.photos/800/600?random=1', 'https://picsum.photos/800/600?random=111'],
+    status: 'ACTIVE',
+    views: 128,
+    userId: 'user-1',
+    user: mockUsers[0],
+    createdAt: new Date('2024-07-20T10:00:00Z').toISOString(),
+    updatedAt: new Date('2024-07-20T10:00:00Z').toISOString(),
   },
   {
     id: '2',
@@ -41,8 +70,13 @@ export const ads: Ad[] = [
     price: 18500,
     category: 'Vehicles',
     location: 'Chattogram',
-    imageUrl: 'https://picsum.photos/400/300?random=2',
-    isFeatured: true,
+    images: ['https://picsum.photos/800/600?random=2'],
+    status: 'ACTIVE',
+    views: 256,
+    userId: 'user-2',
+    user: mockUsers[1],
+    createdAt: new Date('2024-07-19T15:30:00Z').toISOString(),
+    updatedAt: new Date('2024-07-19T15:30:00Z').toISOString(),
   },
   {
     id: '3',
@@ -52,8 +86,13 @@ export const ads: Ad[] = [
     price: 80000,
     category: 'Jobs',
     location: 'Remote',
-    imageUrl: 'https://picsum.photos/400/300?random=3',
-    isFeatured: false,
+    images: ['https://picsum.photos/800/600?random=3'],
+    status: 'ACTIVE',
+    views: 312,
+    userId: 'user-1',
+    user: mockUsers[0],
+    createdAt: new Date('2024-07-18T09:00:00Z').toISOString(),
+    updatedAt: new Date('2024-07-18T09:00:00Z').toISOString(),
   },
   {
     id: '4',
@@ -63,8 +102,13 @@ export const ads: Ad[] = [
     price: 450,
     category: 'Properties',
     location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=4',
-    isFeatured: true,
+    images: ['https://picsum.photos/800/600?random=4'],
+    status: 'ACTIVE',
+    views: 98,
+    userId: 'user-2',
+    user: mockUsers[1],
+    createdAt: new Date('2024-07-17T18:00:00Z').toISOString(),
+    updatedAt: new Date('2024-07-17T18:00:00Z').toISOString(),
   },
   {
     id: '5',
@@ -74,84 +118,13 @@ export const ads: Ad[] = [
     price: 300,
     category: 'Electronics',
     location: 'Sylhet',
-    imageUrl: 'https://picsum.photos/400/300?random=5',
-    isFeatured: false,
+    images: ['https://picsum.photos/800/600?random=5'],
+    status: 'SOLD',
+    views: 450,
+    userId: 'user-1',
+    user: mockUsers[0],
+    createdAt: new Date('2024-07-16T11:45:00Z').toISOString(),
+    updatedAt: new Date('2024-07-21T12:00:00Z').toISOString(),
   },
-  {
-    id: '6',
-    title: 'Professional Graphic Design Services',
-    description:
-      'Offering professional graphic design services for logos, brochures, social media posts, and more. With over 8 years of experience, I can help your brand stand out. Fast turnaround and affordable prices. Contact for a custom quote.',
-    price: 50,
-    category: 'Services',
-    location: 'Online',
-    imageUrl: 'https://picsum.photos/400/300?random=6',
-    isFeatured: false,
-  },
-  {
-    id: '7',
-    title: 'Adorable Persian Kitten for Adoption',
-    description:
-      'Looking for a loving home for our 3-month-old Persian kitten. He is very playful, litter-trained, and loves to cuddle. We are moving and unfortunately cannot take him with us. Small adoption fee to ensure a good home.',
-    price: 100,
-    category: 'Pets',
-    location: 'Khulna',
-    imageUrl: 'https://picsum.photos/400/300?random=7',
-    isFeatured: false,
-  },
-  {
-    id: '8',
-    title: 'IKEA Wardrobe - Good as New',
-    description:
-      'White IKEA PAX wardrobe with two doors. Plenty of storage space with shelves and a hanging rail. In great condition, no visible marks. Dimensions: 100x60x201 cm. Buyer must arrange for pickup and transport.',
-    price: 150,
-    category: 'For Sale',
-    location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=8',
-    isFeatured: false,
-  },
-    {
-    id: '9',
-    title: 'Samsung 4K Smart TV 55 Inch - 2022 Model',
-    description:
-      'Selling my 55-inch Samsung Crystal UHD 4K Smart TV. It has a beautiful picture and all the smart features you need like Netflix, YouTube, etc. No issues at all, just upgrading to a larger size. Model AU8000. Includes remote and stand.',
-    price: 550,
-    category: 'Electronics',
-    location: 'Chattogram',
-    imageUrl: 'https://picsum.photos/400/300?random=9',
-    isFeatured: true,
-  },
-  {
-    id: '10',
-    title: 'Honda CBR 150R ABS 2021 Model',
-    description:
-      'Selling my Honda CBR 150R with ABS. The bike is in pristine condition, with only 5000km on the odometer. Regularly serviced at authorized centers. All papers are up-to-date. No accidents. A great sports bike for enthusiasts.',
-    price: 4800,
-    category: 'Vehicles',
-    location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=10',
-    isFeatured: false,
-  },
-  {
-    id: '11',
-    title: 'Marketing Manager Position at a Startup',
-    description:
-      'A fast-growing tech startup is looking for a dynamic Marketing Manager. You will be responsible for developing and executing marketing strategies. Experience in digital marketing, SEO, and content creation is a must. Great opportunity for growth.',
-    price: 65000,
-    category: 'Jobs',
-    location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=11',
-    isFeatured: false,
-  },
-  {
-    id: '12',
-    title: 'Commercial Space for Rent in Motijheel',
-    description:
-      '800 sq. ft. commercial space available on the ground floor in a busy area of Motijheel. Perfect for an office, showroom, or bank. High foot traffic. Available for long-term lease. Contact for viewing and details.',
-    price: 1000,
-    category: 'Properties',
-    location: 'Dhaka',
-    imageUrl: 'https://picsum.photos/400/300?random=12',
-    isFeatured: true,
-  },
+  // ... more ads
 ];

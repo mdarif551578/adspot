@@ -56,7 +56,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/login" className="text-muted-foreground hover:text-primary">
+                <Link href="/dashboard/profile" className="text-muted-foreground hover:text-primary">
                   My Account
                 </Link>
               </li>
@@ -91,12 +91,12 @@ export default function Footer() {
             <h4 className="font-headline font-semibold">Support</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/help" className="text-muted-foreground hover:text-primary">
                   Help/FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/safety-tips" className="text-muted-foreground hover:text-primary">
                   Safety Tips
                 </Link>
               </li>

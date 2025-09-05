@@ -8,6 +8,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import {
@@ -46,12 +47,12 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a
-              href="#"
+            <Link
+              href="/search"
               className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >
               Locations
-            </a>
+            </Link>
           </nav>
         </div>
 
@@ -85,6 +86,7 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="left">
                 <SheetHeader>
+                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                   <Link href="/" className="mb-8 flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                      <PlusCircle className="h-8 w-8 text-primary" />
                     <span className="font-headline text-2xl font-bold">

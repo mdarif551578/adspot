@@ -65,7 +65,7 @@ export default function SafetyTipsPage() {
                 often use these methods. Deal locally and pay in person once
                 you have the item.
               </CardContent>
-            </card>
+            </Card>
             <Card>
               <CardHeader>
                 <div className="flex items-center gap-4">

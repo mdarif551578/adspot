@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Mail, Lock, User, Phone, LogIn, Chrome } from 'lucide-react';
 import { Button } from '@/components/ui/button';
